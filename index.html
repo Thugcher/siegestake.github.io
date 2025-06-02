@@ -116,10 +116,245 @@
         <button class="buy-ops-btn" onclick="window.location.href='https://secure.zen.com/85bc7c87-eab0-4a64-a354-5121e9b35cf4'">Buy Ops</button>
     </div>
     
-    <!-- (Rest of your existing HTML remains exactly the same) -->
+    <!-- Header with Logo -->
+    <div class="games-header">
+        <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
+        <h1>Siege Stake</h1>
+        <p>High-stakes tactical gaming</p>
+    </div>
+    
+    <!-- Games Grid -->
+    <div class="games-container">
+        <!-- Wall Breach -->
+        <div class="game-card">
+            <h3>Wall Breach</h3>
+            <p>Break through walls for amazing rewards!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Toxic Loadout -->
+        <div class="game-card">
+            <h3>Toxic Loadout</h3>
+            <p>Choose your toxic arsenal carefully!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Fortify or Fold -->
+        <div class="game-card">
+            <h3>Fortify or Fold</h3>
+            <p>Decide whether to strengthen your position or walk away!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Trap Spin -->
+        <div class="game-card">
+            <h3>Trap Spin</h3>
+            <p>Spin the wheel to set deadly traps!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Recon Raffle -->
+        <div class="game-card">
+            <h3>Recon Raffle</h3>
+            <p>Gather intel and win big prizes!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Operator Packs -->
+        <div class="game-card">
+            <h3>Operator Packs</h3>
+            <p>Unlock special operator bundles!</p>
+            <button class="play-btn" onclick="openCrateModal()">Play Now</button>
+        </div>
+        
+        <!-- Defuse the Odds -->
+        <div class="game-card">
+            <h3>Defuse the Odds</h3>
+            <p>Can you defuse against all odds?</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Room Lockdown -->
+        <div class="game-card">
+            <h3>Room Lockdown</h3>
+            <p>Lock down the room for maximum security!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Boom or Bust -->
+        <div class="game-card">
+            <h3>Boom or Bust</h3>
+            <p>High risk, high reward explosive game!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Clutch Spins -->
+        <div class="game-card">
+            <h3>Clutch Spins</h3>
+            <p>Spin your way to victory in clutch moments!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+    </div>
+    
+    <!-- Crate Opening Modal -->
+    <div id="crateModal" class="modal">
+        <div class="crate-container">
+            <div class="crate-header">
+                <h2>BACK TO CRATES</h2>
+                <p>OPEN 1 FOR <span style="color:#ff6b00">0.20</span></p>
+                <h3>Ghostly Graves</h3>
+            </div>
+            
+            <!-- Slot Machine -->
+            <div class="slot-machine">
+                <div class="slot">
+                    <div class="slot-reel" id="reel1">
+                        <div class="slot-number">0</div>
+                        <div class="slot-number">1</div>
+                        <div class="slot-number">2</div>
+                        <div class="slot-number">3</div>
+                        <div class="slot-number">4</div>
+                        <div class="slot-number">5</div>
+                        <div class="slot-number">6</div>
+                        <div class="slot-number">7</div>
+                        <div class="slot-number">8</div>
+                        <div class="slot-number">9</div>
+                    </div>
+                </div>
+                <div class="slot">
+                    <div class="slot-reel" id="reel2">
+                        <div class="slot-number">0</div>
+                        <div class="slot-number">1</div>
+                        <div class="slot-number">2</div>
+                        <div class="slot-number">3</div>
+                        <div class="slot-number">4</div>
+                        <div class="slot-number">5</div>
+                        <div class="slot-number">6</div>
+                        <div class="slot-number">7</div>
+                        <div class="slot-number">8</div>
+                        <div class="slot-number">9</div>
+                    </div>
+                </div>
+                <div class="slot">
+                    <div class="slot-reel" id="reel3">
+                        <div class="slot-number">0</div>
+                        <div class="slot-number">1</div>
+                        <div class="slot-number">2</div>
+                        <div class="slot-number">3</div>
+                        <div class="slot-number">4</div>
+                        <div class="slot-number">5</div>
+                        <div class="slot-number">6</div>
+                        <div class="slot-number">7</div>
+                        <div class="slot-number">8</div>
+                        <div class="slot-number">9</div>
+                    </div>
+                </div>
+                <div class="slot">
+                    <div class="slot-reel" id="reel4">
+                        <div class="slot-number">0</div>
+                        <div class="slot-number">1</div>
+                        <div class="slot-number">2</div>
+                        <div class="slot-number">3</div>
+                        <div class="slot-number">4</div>
+                        <div class="slot-number">5</div>
+                        <div class="slot-number">6</div>
+                        <div class="slot-number">7</div>
+                        <div class="slot-number">8</div>
+                        <div class="slot-number">9</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN</button>
+            
+            <div class="crate-footer">
+                <p>Unbox crates with your friends!<br>We now have Group Unboxing and Crate Battles!</p>
+            </div>
+            
+            <div class="items-list">
+                <h4>ITEMS IN THIS CASE</h4>
+                <div class="item">
+                    <span class="item-name">Black Ice</span>
+                    <span class="item-value">1,627.13 Ops</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Salvamento Maritimo</span>
+                    <span class="item-value">144.17</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Royal</span>
+                    <span class="item-value">97.32</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Majesty</span>
+                    <span class="item-value">54.26</span>
+                </div>
+                <div class="item">
+                    <span class="item-name">Dropshot</span>
+                    <span class="item-value">Well that's embarrassing</span>
+                </div>
+            </div>
+            
+            <button class="close-btn" onclick="closeCrateModal()">CLOSE</button>
+        </div>
+    </div>
     
     <script>
-        // (Your existing JavaScript remains exactly the same)
+        // Modal functions
+        function openCrateModal() {
+            document.getElementById('crateModal').style.display = 'flex';
+            resetSlots();
+        }
+        
+        function closeCrateModal() {
+            document.getElementById('crateModal').style.display = 'none';
+        }
+        
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('crateModal')) {
+                closeCrateModal();
+            }
+        }
+        
+        // Slot Machine Logic
+        function resetSlots() {
+            const reels = document.querySelectorAll('.slot-reel');
+            reels.forEach(reel => {
+                reel.style.transform = 'translateY(0)';
+                reel.dataset.spinning = 'false';
+            });
+            document.getElementById('spinBtn').disabled = false;
+        }
+        
+        function spin() {
+            const spinBtn = document.getElementById('spinBtn');
+            spinBtn.disabled = true;
+            
+            // Your target numbers (7, 4, 2, 6)
+            const targetNumbers = [7, 4, 2, 6];
+            const reels = document.querySelectorAll('.slot-reel');
+            
+            reels.forEach((reel, index) => {
+                reel.dataset.spinning = 'true';
+                const targetPosition = -targetNumbers[index] * 100;
+                const extraSpins = 5; // Number of extra full spins
+                const totalSpin = targetPosition - (extraSpins * 1000);
+                
+                reel.style.transform = `translateY(${totalSpin}px)`;
+                reel.style.transition = `transform ${3 + index * 0.5}s cubic-bezier(0.17, 0.84, 0.44, 1)`;
+                
+                setTimeout(() => {
+                    reel.dataset.spinning = 'false';
+                    reel.style.transform = `translateY(${targetPosition}px)`;
+                    
+                    // Check if all reels stopped
+                    const allStopped = [...reels].every(r => r.dataset.spinning === 'false');
+                    if (allStopped) {
+                        spinBtn.disabled = false;
+                    }
+                }, (3 + index * 0.5) * 1000);
+            });
+        }
     </script>
 </body>
 </html>
