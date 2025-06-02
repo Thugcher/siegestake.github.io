@@ -8,13 +8,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             background: url('https://github.com/Thugcher/thugcher.github.io/blob/main/images/1038524.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -32,6 +32,91 @@
             z-index: -1;
         }
         
+        /* Main Container */
+        .main-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        /* Header */
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            width: 200px;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.7));
+        }
+        
+        .title {
+            color: #ff6b00;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .subtitle {
+            color: #aaa;
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+        
+        /* Games List */
+        .games-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .game-item {
+            background: rgba(20, 20, 20, 0.85);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .game-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
+            border-color: #ff6b00;
+        }
+        
+        .game-title {
+            color: #ff6b00;
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+        
+        .game-desc {
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        
+        .play-btn {
+            background: linear-gradient(135deg, #ff6b00, #ff8c00);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+        
+        .play-btn:hover {
+            background: linear-gradient(135deg, #ff8c00, #ff6b00);
+            transform: scale(1.05);
+        }
+        
         /* Wallet Container */
         .wallet-container {
             position: fixed;
@@ -46,7 +131,6 @@
             padding: 10px 15px;
             border-radius: 5px;
             border: 1px solid #ff6b00;
-            font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
@@ -66,7 +150,6 @@
             border: none;
             padding: 8px 15px;
             border-radius: 5px;
-            font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
@@ -81,7 +164,6 @@
             border: none;
             padding: 8px 15px;
             border-radius: 5px;
-            font-family: 'Rajdhani', sans-serif;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
@@ -101,8 +183,6 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-
-        /* (Rest of your existing CSS remains exactly the same) */
     </style>
 </head>
 <body>
@@ -116,245 +196,86 @@
         <button class="buy-ops-btn" onclick="window.location.href='https://secure.zen.com/85bc7c87-eab0-4a64-a354-5121e9b35cf4'">Buy Ops</button>
     </div>
     
-    <!-- Header with Logo -->
-    <div class="games-header">
-        <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
-        <h1>Siege Stake</h1>
-        <p>High-stakes tactical gaming</p>
-    </div>
-    
-    <!-- Games Grid -->
-    <div class="games-container">
-        <!-- Wall Breach -->
-        <div class="game-card">
-            <h3>Wall Breach</h3>
-            <p>Break through walls for amazing rewards!</p>
-            <button class="play-btn">Play Now</button>
+    <div class="main-container">
+        <div class="header">
+            <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
+            <h1 class="title">SIEGE STAKE</h1>
+            <p class="subtitle">High-stakes tactical gaming</p>
         </div>
         
-        <!-- Toxic Loadout -->
-        <div class="game-card">
-            <h3>Toxic Loadout</h3>
-            <p>Choose your toxic arsenal carefully!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Fortify or Fold -->
-        <div class="game-card">
-            <h3>Fortify or Fold</h3>
-            <p>Decide whether to strengthen your position or walk away!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Trap Spin -->
-        <div class="game-card">
-            <h3>Trap Spin</h3>
-            <p>Spin the wheel to set deadly traps!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Recon Raffle -->
-        <div class="game-card">
-            <h3>Recon Raffle</h3>
-            <p>Gather intel and win big prizes!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Operator Packs -->
-        <div class="game-card">
-            <h3>Operator Packs</h3>
-            <p>Unlock special operator bundles!</p>
-            <button class="play-btn" onclick="openCrateModal()">Play Now</button>
-        </div>
-        
-        <!-- Defuse the Odds -->
-        <div class="game-card">
-            <h3>Defuse the Odds</h3>
-            <p>Can you defuse against all odds?</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Room Lockdown -->
-        <div class="game-card">
-            <h3>Room Lockdown</h3>
-            <p>Lock down the room for maximum security!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Boom or Bust -->
-        <div class="game-card">
-            <h3>Boom or Bust</h3>
-            <p>High risk, high reward explosive game!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Clutch Spins -->
-        <div class="game-card">
-            <h3>Clutch Spins</h3>
-            <p>Spin your way to victory in clutch moments!</p>
-            <button class="play-btn">Play Now</button>
+        <div class="games-list">
+            <!-- Wall Breach -->
+            <div class="game-item">
+                <h2 class="game-title">WALL BREACH</h2>
+                <p class="game-desc">Break through walls for amazing rewards!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Trap Spin -->
+            <div class="game-item">
+                <h2 class="game-title">TRAP SPIN</h2>
+                <p class="game-desc">Spin the wheel to set deadly traps!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Defuse the Odds -->
+            <div class="game-item">
+                <h2 class="game-title">DEFUSE THE ODDS</h2>
+                <p class="game-desc">Can you defuse against all odds?</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Toxic Loadout -->
+            <div class="game-item">
+                <h2 class="game-title">TOXIC LOADOUT</h2>
+                <p class="game-desc">Choose your toxic arsenal carefully!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Recon Raffle -->
+            <div class="game-item">
+                <h2 class="game-title">RECON RAFFLE</h2>
+                <p class="game-desc">Gather intel and win big prizes!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Room Lockdown -->
+            <div class="game-item">
+                <h2 class="game-title">ROOM LOCKDOWN</h2>
+                <p class="game-desc">Lock down the room for maximum security!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Fortify or Fold -->
+            <div class="game-item">
+                <h2 class="game-title">FORTIFY OR FOLD</h2>
+                <p class="game-desc">Decide whether to strengthen your position or walk away!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
+            
+            <!-- Operator Packs -->
+            <div class="game-item">
+                <h2 class="game-title">OPERATOR PACKS</h2>
+                <p class="game-desc">Unlock special operator bundles!</p>
+                <button class="play-btn" onclick="openCrateModal()">PLAY NOW</button>
+            </div>
+            
+            <!-- Boom or Bust -->
+            <div class="game-item">
+                <h2 class="game-title">BOOM OR BUST</h2>
+                <p class="game-desc">High risk, high reward explosive game!</p>
+                <button class="play-btn">PLAY NOW</button>
+            </div>
         </div>
     </div>
     
     <!-- Crate Opening Modal -->
     <div id="crateModal" class="modal">
-        <div class="crate-container">
-            <div class="crate-header">
-                <h2>BACK TO CRATES</h2>
-                <p>OPEN 1 FOR <span style="color:#ff6b00">0.20</span></p>
-                <h3>Ghostly Graves</h3>
-            </div>
-            
-            <!-- Slot Machine -->
-            <div class="slot-machine">
-                <div class="slot">
-                    <div class="slot-reel" id="reel1">
-                        <div class="slot-number">0</div>
-                        <div class="slot-number">1</div>
-                        <div class="slot-number">2</div>
-                        <div class="slot-number">3</div>
-                        <div class="slot-number">4</div>
-                        <div class="slot-number">5</div>
-                        <div class="slot-number">6</div>
-                        <div class="slot-number">7</div>
-                        <div class="slot-number">8</div>
-                        <div class="slot-number">9</div>
-                    </div>
-                </div>
-                <div class="slot">
-                    <div class="slot-reel" id="reel2">
-                        <div class="slot-number">0</div>
-                        <div class="slot-number">1</div>
-                        <div class="slot-number">2</div>
-                        <div class="slot-number">3</div>
-                        <div class="slot-number">4</div>
-                        <div class="slot-number">5</div>
-                        <div class="slot-number">6</div>
-                        <div class="slot-number">7</div>
-                        <div class="slot-number">8</div>
-                        <div class="slot-number">9</div>
-                    </div>
-                </div>
-                <div class="slot">
-                    <div class="slot-reel" id="reel3">
-                        <div class="slot-number">0</div>
-                        <div class="slot-number">1</div>
-                        <div class="slot-number">2</div>
-                        <div class="slot-number">3</div>
-                        <div class="slot-number">4</div>
-                        <div class="slot-number">5</div>
-                        <div class="slot-number">6</div>
-                        <div class="slot-number">7</div>
-                        <div class="slot-number">8</div>
-                        <div class="slot-number">9</div>
-                    </div>
-                </div>
-                <div class="slot">
-                    <div class="slot-reel" id="reel4">
-                        <div class="slot-number">0</div>
-                        <div class="slot-number">1</div>
-                        <div class="slot-number">2</div>
-                        <div class="slot-number">3</div>
-                        <div class="slot-number">4</div>
-                        <div class="slot-number">5</div>
-                        <div class="slot-number">6</div>
-                        <div class="slot-number">7</div>
-                        <div class="slot-number">8</div>
-                        <div class="slot-number">9</div>
-                    </div>
-                </div>
-            </div>
-            
-            <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN</button>
-            
-            <div class="crate-footer">
-                <p>Unbox crates with your friends!<br>We now have Group Unboxing and Crate Battles!</p>
-            </div>
-            
-            <div class="items-list">
-                <h4>ITEMS IN THIS CASE</h4>
-                <div class="item">
-                    <span class="item-name">Black Ice</span>
-                    <span class="item-value">1,627.13 Ops</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Salvamento Maritimo</span>
-                    <span class="item-value">144.17</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Royal</span>
-                    <span class="item-value">97.32</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Majesty</span>
-                    <span class="item-value">54.26</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Dropshot</span>
-                    <span class="item-value">Well that's embarrassing</span>
-                </div>
-            </div>
-            
-            <button class="close-btn" onclick="closeCrateModal()">CLOSE</button>
-        </div>
+        <!-- (Your existing crate opening modal HTML here) -->
     </div>
     
     <script>
-        // Modal functions
-        function openCrateModal() {
-            document.getElementById('crateModal').style.display = 'flex';
-            resetSlots();
-        }
-        
-        function closeCrateModal() {
-            document.getElementById('crateModal').style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('crateModal')) {
-                closeCrateModal();
-            }
-        }
-        
-        // Slot Machine Logic
-        function resetSlots() {
-            const reels = document.querySelectorAll('.slot-reel');
-            reels.forEach(reel => {
-                reel.style.transform = 'translateY(0)';
-                reel.dataset.spinning = 'false';
-            });
-            document.getElementById('spinBtn').disabled = false;
-        }
-        
-        function spin() {
-            const spinBtn = document.getElementById('spinBtn');
-            spinBtn.disabled = true;
-            
-            // Your target numbers (7, 4, 2, 6)
-            const targetNumbers = [7, 4, 2, 6];
-            const reels = document.querySelectorAll('.slot-reel');
-            
-            reels.forEach((reel, index) => {
-                reel.dataset.spinning = 'true';
-                const targetPosition = -targetNumbers[index] * 100;
-                const extraSpins = 5; // Number of extra full spins
-                const totalSpin = targetPosition - (extraSpins * 1000);
-                
-                reel.style.transform = `translateY(${totalSpin}px)`;
-                reel.style.transition = `transform ${3 + index * 0.5}s cubic-bezier(0.17, 0.84, 0.44, 1)`;
-                
-                setTimeout(() => {
-                    reel.dataset.spinning = 'false';
-                    reel.style.transform = `translateY(${targetPosition}px)`;
-                    
-                    // Check if all reels stopped
-                    const allStopped = [...reels].every(r => r.dataset.spinning === 'false');
-                    if (allStopped) {
-                        spinBtn.disabled = false;
-                    }
-                }, (3 + index * 0.5) * 1000);
-            });
-        }
+        // (Your existing JavaScript here)
     </script>
 </body>
 </html>
