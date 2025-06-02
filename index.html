@@ -33,6 +33,14 @@
             z-index: -1;
         }
         
+        /* Logo Styling */
+        .logo {
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.7));
+        }
+        
         .games-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -99,29 +107,30 @@
         /* Header styling */
         .games-header {
             text-align: center;
-            padding: 40px 0 20px;
+            padding: 20px 0 10px;
             font-family: 'Rajdhani', sans-serif;
         }
         
         .games-header h1 {
             color: #ff6b00;
-            font-size: 2.5rem;
-            margin: 0;
+            font-size: 2rem;
+            margin: 10px 0 0;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
         
         .games-header p {
             color: #aaa;
-            font-size: 1.1rem;
-            margin-top: 10px;
+            font-size: 1rem;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header with Logo -->
     <div class="games-header">
-        <h1>Siege Stake Games</h1>
+        <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
+        <h1>Siege Stake</h1>
         <p>High-stakes tactical gaming</p>
     </div>
     
