@@ -11,123 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Ubuntu', sans-serif;
-            background: url('https://github.com/Thugcher/thugcher.github.io/blob/main/images/1038524.jpg?raw=true') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            min-height: 100vh;
-        }
+        /* (Previous CSS remains the same until .slot-machine) */
         
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: -1;
-        }
-        
-        /* Wallet Container */
-        .wallet-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            text-align: right;
-            z-index: 100;
-        }
-        
-        .balance-display {
-            background: rgba(20, 20, 20, 0.9);
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: 1px solid #ff6b00;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
-        }
-        
-        .balance-amount {
-            color: #ff6b00;
-            font-size: 1.2rem;
-            margin-left: 5px;
-        }
-        
-        .free-pack-btn {
-            background: linear-gradient(135deg, #ff6b00, #c05500);
-            color: black;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            border: 1px solid #000;
-        }
-        
-        .free-pack-btn:hover {
-            background: linear-gradient(135deg, #ff8c00, #ff6b00);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            color: white;
-        }
-        
-        /* Crate Opening Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 200;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .crate-container {
-            background: rgba(30, 30, 30, 0.95);
-            border: 3px solid #ff6b00;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .crate-header {
-            font-family: 'Rajdhani', sans-serif;
-            color: #ff6b00;
-            margin-bottom: 20px;
-        }
-        
-        .crate-header h2 {
-            font-size: 1.8rem;
-            margin: 0;
-        }
-        
-        .crate-header p {
-            font-size: 1.2rem;
-            margin: 5px 0;
-        }
-        
-        /* Slot Machine Styles */
+        /* Bandit Camp Style Slot Machine */
         .slot-machine {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             margin: 30px 0;
             perspective: 1000px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ff6b00;
         }
         
         .slot {
@@ -138,13 +34,14 @@
             border: 3px solid #ff6b00;
             border-radius: 8px;
             background: rgba(0,0,0,0.7);
+            box-shadow: 0 0 15px rgba(255,107,0,0.5);
         }
         
         .slot-reel {
             position: absolute;
             width: 100%;
             text-align: center;
-            transition: transform 4s cubic-bezier(0.17, 0.84, 0.44, 1);
+            transition: transform 0.1s;
         }
         
         .slot-number {
@@ -156,6 +53,7 @@
             font-size: 3rem;
             font-weight: bold;
             color: #ff6b00;
+            text-shadow: 0 0 5px rgba(255,107,0,0.8);
         }
         
         .spin-btn {
@@ -170,259 +68,21 @@
             cursor: pointer;
             margin: 20px 0;
             transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(255,107,0,0.5);
         }
         
-        .spin-btn:hover {
-            background: linear-gradient(135deg, #ff8c00, #ff6b00);
-            transform: scale(1.05);
-        }
-        
-        .spin-btn:disabled {
-            background: #666;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .crate-footer {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        .items-list {
-            text-align: left;
-            margin: 20px 0;
-            border-top: 1px solid #444;
-            padding-top: 10px;
-        }
-        
-        .item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #333;
-        }
-        
-        .item-name {
-            color: #ddd;
-        }
-        
-        .item-value {
-            color: #ff6b00;
-            font-weight: bold;
-        }
-        
-        .close-btn {
-            background: #ff6b00;
-            color: black;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 5px;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s;
-        }
-        
-        .close-btn:hover {
-            background: #ff8c00;
-        }
-        
-        /* Game Grid Styles */
-        .logo {
-            width: 200px;
-            margin: 0 auto;
-            display: block;
-            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.7));
-        }
-        
-        .games-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .game-card {
-            background: rgba(20, 20, 20, 0.85);
-            border-radius: 8px;
-            padding: 20px;
-            color: white;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 2px solid #333;
-            backdrop-filter: blur(5px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        }
-        
-        .game-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3);
-            border-color: #ff6b00;
-        }
-        
-        .game-card h3 {
-            margin-top: 0;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #ff6b00;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .game-card p {
-            color: #ddd;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        
-        .play-btn {
-            background: linear-gradient(135deg, #ff6b00, #ff8c00);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-weight: bold;
-            font-family: 'Rajdhani', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-        }
-        
-        .play-btn:hover {
-            background: linear-gradient(135deg, #ff8c00, #ff6b00);
-            transform: scale(1.05);
-        }
-        
-        .games-header {
-            text-align: center;
-            padding: 20px 0 10px;
-            font-family: 'Rajdhani', sans-serif;
-            margin-top: 40px;
-        }
-        
-        .games-header h1 {
-            color: #ff6b00;
-            font-size: 2rem;
-            margin: 10px 0 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .games-header p {
-            color: #aaa;
-            font-size: 1rem;
-            margin-top: 5px;
-        }
+        /* (Rest of CSS remains the same) */
     </style>
 </head>
 <body>
-    <!-- Wallet Container -->
-    <div class="wallet-container">
-        <div class="balance-display">
-            <span>Ops:</span>
-            <span class="balance-amount">0.00</span>
-        </div>
-        <button class="free-pack-btn">Claim your free pack for today!</button>
-    </div>
-    
-    <!-- Header with Logo -->
-    <div class="games-header">
-        <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
-        <h1>Siege Stake</h1>
-        <p>High-stakes tactical gaming</p>
-    </div>
-    
-    <!-- Games Grid -->
-    <div class="games-container">
-        <!-- Wall Breach -->
-        <div class="game-card">
-            <h3>Wall Breach</h3>
-            <p>Break through walls for amazing rewards!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Toxic Loadout -->
-        <div class="game-card">
-            <h3>Toxic Loadout</h3>
-            <p>Choose your toxic arsenal carefully!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Fortify or Fold -->
-        <div class="game-card">
-            <h3>Fortify or Fold</h3>
-            <p>Decide whether to strengthen your position or walk away!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Trap Spin -->
-        <div class="game-card">
-            <h3>Trap Spin</h3>
-            <p>Spin the wheel to set deadly traps!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Recon Raffle -->
-        <div class="game-card">
-            <h3>Recon Raffle</h3>
-            <p>Gather intel and win big prizes!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Operator Packs -->
-        <div class="game-card">
-            <h3>Operator Packs</h3>
-            <p>Unlock special operator bundles!</p>
-            <button class="play-btn" onclick="openCrateModal()">Play Now</button>
-        </div>
-        
-        <!-- Defuse the Odds -->
-        <div class="game-card">
-            <h3>Defuse the Odds</h3>
-            <p>Can you defuse against all odds?</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Room Lockdown -->
-        <div class="game-card">
-            <h3>Room Lockdown</h3>
-            <p>Lock down the room for maximum security!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Boom or Bust -->
-        <div class="game-card">
-            <h3>Boom or Bust</h3>
-            <p>High risk, high reward explosive game!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-        
-        <!-- Clutch Spins -->
-        <div class="game-card">
-            <h3>Clutch Spins</h3>
-            <p>Spin your way to victory in clutch moments!</p>
-            <button class="play-btn">Play Now</button>
-        </div>
-    </div>
+    <!-- (Previous HTML remains the same until slot machine section) -->
     
     <!-- Crate Opening Modal -->
     <div id="crateModal" class="modal">
         <div class="crate-container">
-            <div class="crate-header">
-                <h2>BACK TO CRATES</h2>
-                <p>OPEN 1 FOR <span style="color:#ff6b00">0.20</span></p>
-                <h3>Ghostly Graves</h3>
-            </div>
+            <!-- (Previous modal header content remains the same) -->
             
-            <!-- Slot Machine -->
+            <!-- Bandit Camp Style Slot Machine -->
             <div class="slot-machine">
                 <div class="slot">
                     <div class="slot-reel" id="reel1">
@@ -484,98 +144,68 @@
             
             <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN</button>
             
-            <div class="crate-footer">
-                <p>Unbox crates with your friends!<br>We now have Group Unboxing and Crate Battles!</p>
-            </div>
-            
-            <div class="items-list">
-                 <h4>ITEMS IN THIS CASE</h4>
-                <div class="item">
-                    <span class="item-name">Black Ice</span>
-                    <span class="item-value">1,627.13 Ops</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Salvamento Maritimo</span>
-                    <span class="item-value">144.17</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Royal</span>
-                    <span class="item-value">97.32</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Majesty</span>
-                    <span class="item-value">54.26</span>
-                </div>
-                <div class="item">
-                    <span class="item-name">Dropshot</span>
-                    <span class="item-value">Well that's embarrassing</span>
-                </div>
-            </div>
-            
-            <button class="close-btn" onclick="closeCrateModal()">CLOSE</button>
+            <!-- (Rest of modal content remains the same) -->
         </div>
     </div>
-            
-            <button class="close-btn" onclick="closeCrateModal()">CLOSE</button>
-        </div>
-    </div>
+
+    <!-- (Rest of HTML remains the same) -->
     
     <script>
-        // Modal functions
-        function openCrateModal() {
-            document.getElementById('crateModal').style.display = 'flex';
-            resetSlots();
-        }
-        
-        function closeCrateModal() {
-            document.getElementById('crateModal').style.display = 'none';
-        }
-        
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('crateModal')) {
-                closeCrateModal();
-            }
-        }
-        
-        // Slot Machine Logic
-        function resetSlots() {
-            const reels = document.querySelectorAll('.slot-reel');
-            reels.forEach(reel => {
-                reel.style.transform = 'translateY(0)';
-                reel.dataset.spinning = 'false';
-            });
-            document.getElementById('spinBtn').disabled = false;
-        }
+        // Bandit Camp Style Slot Machine Animation
+        let spinning = false;
+        const spinDuration = 3000; // 3 seconds total spin time
+        const reelCount = 4;
+        const targetNumbers = [7, 4, 2, 6]; // Your target numbers
         
         function spin() {
-            const spinBtn = document.getElementById('spinBtn');
-            spinBtn.disabled = true;
+            if (spinning) return;
+            spinning = true;
+            document.getElementById('spinBtn').disabled = true;
             
-            // Your target numbers (7, 4, 2, 6)
-            const targetNumbers = [7, 4, 2, 6];
             const reels = document.querySelectorAll('.slot-reel');
+            const startTime = Date.now();
             
-            reels.forEach((reel, index) => {
-                reel.dataset.spinning = 'true';
-                const targetPosition = -targetNumbers[index] * 100;
-                const extraSpins = 5; // Number of extra full spins
-                const totalSpin = targetPosition - (extraSpins * 1000);
-                
-                reel.style.transform = `translateY(${totalSpin}px)`;
-                reel.style.transition = `transform ${3 + index * 0.5}s cubic-bezier(0.17, 0.84, 0.44, 1)`;
-                
-                setTimeout(() => {
-                    reel.dataset.spinning = 'false';
-                    reel.style.transform = `translateY(${targetPosition}px)`;
-                    
-                    // Check if all reels stopped
-                    const allStopped = [...reels].every(r => r.dataset.spinning === 'false');
-                    if (allStopped) {
-                        spinBtn.disabled = false;
-                    }
-                }, (3 + index * 0.5) * 1000);
+            // Initial fast spin
+            reels.forEach(reel => {
+                reel.style.transition = 'none';
+                reel.style.transform = `translateY(${-Math.random() * 1000}px)`;
             });
+            
+            setTimeout(() => {
+                // Smooth spin animation
+                reels.forEach(reel => {
+                    reel.style.transition = `transform ${spinDuration/1000}s cubic-bezier(0.1, 0.7, 0.1, 1)`;
+                });
+                
+                // Set final positions with slight delays between reels
+                reels.forEach((reel, index) => {
+                    setTimeout(() => {
+                        const targetPos = -targetNumbers[index] * 100;
+                        reel.style.transform = `translateY(${targetPos}px)`;
+                        
+                        // Add bounce effect
+                        setTimeout(() => {
+                            reel.style.transition = 'transform 0.2s ease-out';
+                            reel.style.transform = `translateY(${targetPos + 15}px)`;
+                            
+                            setTimeout(() => {
+                                reel.style.transform = `translateY(${targetPos}px)`;
+                                
+                                // Enable button when last reel stops
+                                if (index === reels.length - 1) {
+                                    setTimeout(() => {
+                                        spinning = false;
+                                        document.getElementById('spinBtn').disabled = false;
+                                    }, 200);
+                                }
+                            }, 200);
+                        }, spinDuration - 200);
+                    }, index * 150);
+                });
+            }, 50);
         }
+        
+        // (Rest of JavaScript remains the same)
     </script>
 </body>
 </html>
