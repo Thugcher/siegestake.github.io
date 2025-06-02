@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siege Stake - Slot Machine</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Rajdhani', sans-serif;
+            background: url('https://github.com/Thugcher/thugcher.github.io/blob/main/images/1038524.jpg?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        
+        .logo {
+            width: 200px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.7));
+        }
+        
+        /* Slot Machine Container */
+        .slot-container {
+            background: rgba(20, 20, 20, 0.9);
+            border: 3px solid #ff6b00;
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 0 30px rgba(255, 107, 0, 0.3);
+            text-align: center;
+        }
+        
+        .slot-header {
+            margin-bottom: 20px;
+        }
+        
+        .slot-header h2 {
+            color: #ff6b00;
+            font-size: 1.8rem;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+        
+        .slot-header p {
+            color: #aaa;
+            margin: 5px 0;
+        }
+        
+        /* Bandit Camp Style Slot Machine */
+        .slot-machine {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            perspective: 1000px;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #ff6b00;
+        }
+        
+        .slot {
+            width: 80px;
+            height: 100px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #ff6b00;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.7);
+            box-shadow: 0 0 15px rgba(255,107,0,0.5);
+        }
+        
+        .slot-reel {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.1s;
+        }
+        
+        .slot-number {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff6b00;
+            text-shadow: 0 0 5px rgba(255,107,0,0.8);
+        }
+        
+        .spin-btn {
+            background: linear-gradient(135deg, #ff6b00, #ff8c00);
+            color: black;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: bold;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(255,107,0,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .spin-btn:hover {
+            background: linear-gradient(135deg, #ff8c00, #ff6b00);
+            transform: scale(1.05);
+        }
+        
+        .spin-btn:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Results Display */
+        .results {
+            margin-top: 20px;
+            color: #ddd;
+        }
+        
+        .balance-display {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #ff6b00;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-top: 20px;
+        }
+        
+        .balance-amount {
+            color: #ff6b00;
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
+    
+    <div class="slot-container">
+        <div class="slot-header">
+            <h2>Ghostly Graves</h2>
+            <p>OPEN 1 FOR <span style="color:#ff6b00">0.20 Ops</span></p>
+        </div>
+        
+        <!-- Bandit Camp Style Slot Machine -->
+        <div class="slot-machine">
+            <div class="slot">
+                <div class="slot-reel" id="reel1">
+                    <div class="slot-number">0</div>
+                    <div class="slot-number">1</div>
+                    <div class="slot-number">2</div>
+                    <div class="slot-number">3</div>
+                    <div class="slot-number">4</div>
+                    <div class="slot-number">5</div>
+                    <div class="slot-number">6</div>
+                    <div class="slot-number">7</div>
+                    <div class="slot-number">8</div>
+                    <div class="slot-number">9</div>
+                </div>
+            </div>
+            <div class="slot">
+                <div class="slot-reel" id="reel2">
+                    <div class="slot-number">0</div>
+                    <div class="slot-number">1</div>
+                    <div class="slot-number">2</div>
+                    <div class="slot-number">3</div>
+                    <div class="slot-number">4</div>
+                    <div class="slot-number">5</div>
+                    <div class="slot-number">6</div>
+                    <div class="slot-number">7</div>
+                    <div class="slot-number">8</div>
+                    <div class="slot-number">9</div>
+                </div>
+            </div>
+            <div class="slot">
+                <div class="slot-reel" id="reel3">
+                    <div class="slot-number">0</div>
+                    <div class="slot-number">1</div>
+                    <div class="slot-number">2</div>
+                    <div class="slot-number">3</div>
+                    <div class="slot-number">4</div>
+                    <div class="slot-number">5</div>
+                    <div class="slot-number">6</div>
+                    <div class="slot-number">7</div>
+                    <div class="slot-number">8</div>
+                    <div class="slot-number">9</div>
+                </div>
+            </div>
+            <div class="slot">
+                <div class="slot-reel" id="reel4">
+                    <div class="slot-number">0</div>
+                    <div class="slot-number">1</div>
+                    <div class="slot-number">2</div>
+                    <div class="slot-number">3</div>
+                    <div class="slot-number">4</div>
+                    <div class="slot-number">5</div>
+                    <div class="slot-number">6</div>
+                    <div class="slot-number">7</div>
+                    <div class="slot-number">8</div>
+                    <div class="slot-number">9</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="spin-btn" id="spinBtn" onclick="spin()">SPIN</button>
+        
+        <div class="results">
+            <p>Unbox crates with your friends!<br>We now have Group Unboxing and Crate Battles!</p>
+        </div>
+        
+        <div class="balance-display">
+            <span>Your Ops:</span>
+            <span class="balance-amount">0.00</span>
+        </div>
+    </div>
+    
+    <script>
+        // Bandit Camp Style Slot Machine Animation
+        let spinning = false;
+        const spinDuration = 3000; // 3 seconds total spin time
+        const reelCount = 4;
+        const targetNumbers = [7, 4, 2, 6]; // Target numbers (7-4-2-6)
+        
+        function spin() {
+            if (spinning) return;
+            spinning = true;
+            document.getElementById('spinBtn').disabled = true;
+            
+            const reels = document.querySelectorAll('.slot-reel');
+            const startTime = Date.now();
+            
+            // Initial fast spin
+            reels.forEach(reel => {
+                reel.style.transition = 'none';
+                reel.style.transform = `translateY(${-Math.random() * 1000}px)`;
+            });
+            
+            setTimeout(() => {
+                // Smooth spin animation
+                reels.forEach(reel => {
+                    reel.style.transition = `transform ${spinDuration/1000}s cubic-bezier(0.1, 0.7, 0.1, 1)`;
+                });
+                
+                // Set final positions with slight delays between reels
+                reels.forEach((reel, index) => {
+                    setTimeout(() => {
+                        const targetPos = -targetNumbers[index] * 100;
+                        reel.style.transform = `translateY(${targetPos}px)`;
+                        
+                        // Add bounce effect
+                        setTimeout(() => {
+                            reel.style.transition = 'transform 0.2s ease-out';
+                            reel.style.transform = `translateY(${targetPos + 15}px)`;
+                            
+                            setTimeout(() => {
+                                reel.style.transform = `translateY(${targetPos}px)`;
+                                
+                                // Enable button when last reel stops
+                                if (index === reels.length - 1) {
+                                    setTimeout(() => {
+                                        spinning = false;
+                                        document.getElementById('spinBtn').disabled = false;
+                                    }, 200);
+                                }
+                            }, 200);
+                        }, spinDuration - 200);
+                    }, index * 150);
+                });
+            }, 50);
+        }
+    </script>
+</body>
+</html>
