@@ -33,6 +33,28 @@
             z-index: -1;
         }
         
+        /* Balance Display (Top Right) */
+        .balance-display {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #ff6b00;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .balance-amount {
+            color: #ff6b00;
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+        
         /* Logo Styling */
         .logo {
             width: 200px;
@@ -109,6 +131,7 @@
             text-align: center;
             padding: 20px 0 10px;
             font-family: 'Rajdhani', sans-serif;
+            margin-top: 40px; /* Added space for balance display */
         }
         
         .games-header h1 {
@@ -127,6 +150,12 @@
     </style>
 </head>
 <body>
+    <!-- Balance Display -->
+    <div class="balance-display">
+        <span>DenneCoins:</span>
+        <span class="balance-amount">0.00</span>
+    </div>
+    
     <!-- Header with Logo -->
     <div class="games-header">
         <img src="https://github.com/Thugcher/thugcher.github.io/blob/main/images/ChatGPT%20Image%20Jun%201,%202025,%2002_23_33%20AM.png?raw=true" alt="Siege Stake Logo" class="logo">
