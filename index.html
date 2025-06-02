@@ -1,110 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SiegeStake</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0f0f0f;
-      color: #f0f0f0;
-    }
-    header {
-      background: #1a1a1a;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      color: #00bfff;
-      margin: 0;
-    }
-    nav a {
-      color: #f0f0f0;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .hero {
-      background: url('https://example.com/siege-background.jpg') center/cover no-repeat;
-      height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 3em;
-      background: linear-gradient(90deg, #00bfff, #ff00ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .games {
-      display: flex;
-      justify-content: space-around;
-      padding: 60px 40px;
-      background-color: #1a1a1a;
-    }
-    .game-card {
-      background: #2a2a2a;
-      padding: 20px;
-      border-radius: 10px;
-      width: 30%;
-      text-align: center;
-    }
-    .game-card h3 {
-      margin-bottom: 10px;
-      color: #00bfff;
-    }
-    .game-card p {
-      font-size: 0.9em;
-      color: #ccc;
-    }
-    footer {
-      background: #1a1a1a;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.8em;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siege Stake - Games</title>
+    <style>
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .game-card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .game-card h3 {
+            margin-top: 0;
+            color: #ff6b00;
+        }
+        
+        .game-card p {
+            color: #ccc;
+        }
+        
+        .play-btn {
+            background-color: #ff6b00;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .play-btn:hover {
+            background-color: #ff8c00;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>SiegeStake</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Games</a>
-      <a href="#">Promotions</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Bet on Siege. Win Big.</h2>
-  </section>
-
-  <section class="games">
-    <div class="game-card">
-      <h3>Operator Roulette</h3>
-      <p>Spin the wheel and bet on your favorite operators to win exclusive rewards.</p>
+    <div class="games-container">
+        <!-- Wall Breach -->
+        <div class="game-card">
+            <h3>Wall Breach</h3>
+            <p>Break through walls for amazing rewards!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Toxic Loadout -->
+        <div class="game-card">
+            <h3>Toxic Loadout</h3>
+            <p>Choose your toxic arsenal carefully!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Fortify or Fold -->
+        <div class="game-card">
+            <h3>Fortify or Fold</h3>
+            <p>Decide whether to strengthen your position or walk away!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Trap Spin -->
+        <div class="game-card">
+            <h3>Trap Spin</h3>
+            <p>Spin the wheel to set deadly traps!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Recon Raffle -->
+        <div class="game-card">
+            <h3>Recon Raffle</h3>
+            <p>Gather intel and win big prizes!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Operator Packs -->
+        <div class="game-card">
+            <h3>Operator Packs</h3>
+            <p>Unlock special operator bundles!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Defuse the Odds -->
+        <div class="game-card">
+            <h3>Defuse the Odds</h3>
+            <p>Can you defuse against all odds?</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Room Lockdown -->
+        <div class="game-card">
+            <h3>Room Lockdown</h3>
+            <p>Lock down the room for maximum security!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Boom or Bust -->
+        <div class="game-card">
+            <h3>Boom or Bust</h3>
+            <p>High risk, high reward explosive game!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
+        
+        <!-- Clutch Spins -->
+        <div class="game-card">
+            <h3>Clutch Spins</h3>
+            <p>Spin your way to victory in clutch moments!</p>
+            <button class="play-btn">Play Now</button>
+        </div>
     </div>
-    <div class="game-card">
-      <h3>Case Breach</h3>
-      <p>Open cases inspired by Siege gear and unlock rare in-game items.</p>
-    </div>
-    <div class="game-card">
-      <h3>Siege Coinflip</h3>
-      <p>Challenge other players in a head-to-head coinflip battle. Winner takes all!</p>
-    </div>
-  </section>
-
-  <footer>
-    &copy; 2025 SiegeStake. All rights reserved.
-  </footer>
 </body>
 </html>
